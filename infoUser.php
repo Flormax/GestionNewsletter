@@ -8,10 +8,10 @@
 	<body>
 		<?php include 'functions.php'; Top_Admin();?>
 		<BR/><hr>
-		<div id="contenu">
+		<div id="contenu"><h1>DETAILS UTILISATEUR</h1>
 			<?php
             if (isset($_GET["id"])) {
-         				 SelectOne($_GET["id"]);
+         				 SelectOneUser($_GET["id"]);
                         }
          	?>
 		</div>

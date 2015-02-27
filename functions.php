@@ -1,5 +1,6 @@
 <?php
 	include 'DB_utilisateur.php';
+	include 'DB_newsletter.php';
 	
 	function Connexion($log, $pwd){
 		if(Select_CoAdmin($log,$pwd)){

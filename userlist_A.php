@@ -7,9 +7,9 @@
 	</head> 
 	<body>
 		<?php include 'functions.php'; Top_Admin();?>
-		<div id="contenu"><h1>LISTE DES UTILISATEURS</h1><BR/><BR/>
+		<div id="contenu"><h1>LISTE DES UTILISATEURS</h1>
 		<?php 
-			SelectAll();
+			SelectAllUsers();
 		?>
 		</div>
 		<div id="bottom">Gestionnaire de newsletters de la maison des ligues de lorraine, tout droits reserves. Contact: webmaster@m2l.fr</div>
