@@ -10,7 +10,7 @@
 	?>
 	<body>
 		<div id="blocantiscroll">
-			<img src="logo.png" id="logodroit"/><img src="logo.png" id="logogauche"/>
+			<img src="img/logo.png" id="logodroit"/><img src="img/logo.png" id="logogauche"/>
 			<div id="ban">Gestionnaire de newsletters de la M2L</div>
 		</div>
 		<div id="log">

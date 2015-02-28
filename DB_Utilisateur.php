@@ -1,5 +1,4 @@
 <?php
-	include 'DB.php';
 	include 'DB_abonné.php';
 	
 	function Select_CoAdmin($nom,$mdp)
@@ -45,7 +44,7 @@
 			echo('<td>'.$data["idUs"].'</td>');
 			echo('<td>'.$data["log"].'</td>');
 			echo('<td>'.$data["email"].'</td>');
-			echo('<td><a href="infoUser.php?id='.$data["idUs"].'">DETAILS</a></td>');
+			echo('<td><a href="A_info_Us.php?id='.$data["idUs"].'">DETAILS</a></td>');
 			echo('</tr>');
         }
         echo('</table>');
@@ -59,22 +58,20 @@
 			
 		$stmp->execute();
 		echo('<ul>');
-		echo('<form action="post">');
-		while($data = $stmp->fetch())
-		{	
-			echo('<li>Identifiant:  '.$data["log"].'</li>');
-			echo('<li>Email:  '.$data["email"].'</li>');
-			echo('<li>Newsletter 1:  ');
-			echo('<input type="checkbox" name="NL1"');
-			if(TestAbo($id,1)) 
-				echo'checked></li>';
-			else echo'></li>';
-			echo('<li>Newsletter 2:  ');
-			echo('<input type="checkbox" name="NL1"');
-			if(TestAbo($id,2)) 
-				echo'checked></li>';
-			else echo'></li>';
-		}
+		$data = $stmp->fetch();
+		echo('<form method="post" action="A_update_Us.php?id='.$data["idUs"].'">');
+		echo('<li>Identifiant:  '.$data["log"].'</li>');
+		echo('<li>Email:  '.$data["email"].'</li>');
+		echo('<li>Newsletter 1:  ');
+		echo('<input type="checkbox" name="NL1"');
+		if(TestAbo($id,1)) 
+			echo'checked></li>';
+		else echo'></li>';
+		echo('<li>Newsletter 2:  ');
+		echo('<input type="checkbox" name="NL2"');
+		if(TestAbo($id,2)) 
+			echo'checked></li>';
+		else echo'></li>';
 		echo'<input type="submit" value="modifier"></form>';
 		echo'</ul>';
 	}

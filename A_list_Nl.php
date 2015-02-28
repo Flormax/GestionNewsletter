@@ -12,6 +12,6 @@
 				SelectAllNl();
 			?>
 		</div>
-		<div id="bottom">Gestionnaire de newsletters de la maison des ligues de lorraine, tout droits reserves. Contact: webmaster@m2l.fr</div>
+		<?php Bot();?>
 	</body>
 </html>
