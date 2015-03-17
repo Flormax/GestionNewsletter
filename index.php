@@ -7,6 +7,7 @@
 	</head> 
 	<?php 
 		include 'functions.php';
+		session_start();
 	?>
 	<body>
 		<div id="blocantiscroll">
@@ -14,13 +15,14 @@
 			<div id="ban">Gestionnaire de newsletters de la M2L</div>
 		</div>
 		<div id="log">
-			<form method="post">
+			<form method="post" action="login.php">
 				CONNEXION:
 				<p>Login:
 				<input type="text" name="log" /></p>
 				<p>Mot de passe:
 				<input type="password" name="pwd" /></p>
-				<p><?php if(isset($_POST['log']) && isset($_POST['pwd']) ) Connexion($_POST['log'], $_POST['pwd']); ?></p>
+				<p><?php if(isset($_GET['ERROR'])) echo 'Erreur d\'identifiants'; ?></p>
+				<p><?php if(isset($_GET['DROIT'])) echo 'Probleme de droit'; ?></p>
 				<input type="submit" value="Se connecter" />
 			</form>
 		</div>

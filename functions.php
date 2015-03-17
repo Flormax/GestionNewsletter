@@ -1,18 +1,6 @@
 <?php
 	include 'DB_Utilisateur.php';
 	include 'DB_newsletter.php';
-	
-	function Connexion($log, $pwd){
-		if(Select_CoAdmin($log,$pwd)){
-			header('Location: A_home.php');
-		}
-		else if(Select_CoUser($log,$pwd)){
-			header('Location: U_home.php');
-		}
-		else{
-			echo'Erreur d\'identifiant';
-		}
-	}
 
 	function Top_Admin(){
 		echo '<div id="blocantiscroll">
@@ -26,7 +14,7 @@
 					<a href="A_list_Nl.php">Liste des newsletters</a>
 				</div>
 				<div id="boutons">
-					<a href="connexion.php">Deconnexion</a>
+					<a href="logout.php">Deconnexion</a>
 				</div>
 			</div><br/><br/><br/><br/>	<hr>
 		</div>';
@@ -41,7 +29,7 @@
 					<a href="U_profil.php">Mes abonnements</a>
 				</div>
 				<div id="boutons">
-					<a href="connexion.php">Deconnexion</a>
+					<a href="logout.php">Deconnexion</a>
 				</div>
 			</div><br/><br/><br/><br/>	<hr>
 		</div>';
@@ -50,6 +38,34 @@
 	function Bot(){
 		echo'<div id="bottom">Gestionnaire de newsletters de la maison des ligues de
 		lorraine, tout droits reserves. Contact: webmaster@m2l.fr</div>';
+	}
+	
+	function TestAdmin(){
+		if(!isset($_SESSION['admin'])||!isset($_SESSION['connect'])){
+			header('Location: index.php?DROIT=1');
+		}
+		else{
+			if($_SESSION['admin']==1&&$_SESSION['connect']==1){
+				return;
+			}
+			else{
+				header('Location: index.php?DROIT=1');
+			}
+		}
+	}
+	
+	function TestLog(){
+		if(!isset($_SESSION['connect'])){
+			header('Location: index.php?DROIT=1');
+		}
+		else{
+			if($_SESSION['connect']==1){
+				return;
+			}
+			else{
+				header('Location: index.php?DROIT=1');
+			}
+		}
 	}
 
 	?>

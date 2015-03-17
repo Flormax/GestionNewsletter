@@ -1,4 +1,4 @@
-<-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head> 
 		<title>Gestionnaire de newsletters - Mes abonnements</title> 
@@ -6,7 +6,12 @@
 		<link rel="stylesheet" type="text/css" href="style.css" /> 
 	</head> 
 	<body>
-		<?php include 'functions.php'; Top_User();?>
+		<?php 
+		include 'functions.php'; 
+		session_start();
+		TestLog();
+		Top_User();
+		?>
 		<div id="contenu"><h1>MON PROFIL</h1>
 		</div>
 		<?php Bot();?>

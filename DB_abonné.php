@@ -15,26 +15,9 @@
 	
 	function SelectAllAbo($id){
 		$dbh = Connect();
-		$sql="select u.idUs, log, email from utilisateur u, abonné a where u.idUs=a.idUs and a.idNl=:id";
-		$stmp=$dbh->prepare($sql);
-		$stmp->BindValue(':id',$id);
-		$stmp->execute();
-		echo('<h1>Liste des abonnes:</h1>');
-		echo('<table border=1 align="center">');
-		echo('<tr>');
-		echo('<td></td>');
-		echo('<td>IDENTIFIANT</td>');
-		echo('<td>ADRESSE MAIL</td>');
-		echo('</tr>');
-		while($data = $stmp->fetch())
-		{
-			echo('<tr>');
-			echo('<td>'.$data["idUs"].'</td>');
-			echo('<td>'.$data["log"].'</td>');
-			echo('<td>'.$data["email"].'</td>');
-			echo('</tr>');
-		}
-		echo('</table>');
+		$sql="select u.idUs, log, email from utilisateur u, abonné a where u.idUs=a.idUs and a.idNl=".$id;
+		$query  =  $dbh->query($sql);
+		return $query;
 	}
 
 	function Abonner($idUs, $idNl){
