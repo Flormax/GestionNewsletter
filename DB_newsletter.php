@@ -3,14 +3,19 @@
 	
 	function SelectAllNl(){
 		$dbh = Connect();
-		$sql="select idNl, libel from NEWSLETTER";
+		$sql="SELECT idNl, libel 
+			  FROM newsletter";
 		$query  =  $dbh->query($sql);
 		return $query;
 	}
 	
 	function SelectOneNl($id){
 		$dbh = connect();
-		$sql = "select libel, descr, nom, prenom, (select count(*) from abonné where idNl=".$id.") as nb_abo from redacteur r, newsletter n where r.idRed = n.idRed and n.idNl=".$id."";
+		$sql = "SELECT libel, descr, nom, prenom, (SELECT count(*) 
+												   FROM abonné 
+												   WHERE idNl=".$id.") as nb_abo 
+				FROM redacteur r, newsletter n 
+				WHERE r.idRed = n.idRed and n.idNl=".$id."";
 		$query  =  $dbh->query($sql);
 		return $query->fetch();
 	}

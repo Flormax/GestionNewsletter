@@ -7,7 +7,7 @@
 	</head> 
 	<body>
 		<?php 
-		include 'functions.php'; 
+		include_once 'functions.php'; 
 		session_start();
 		TestLog();
 		Top_User();

@@ -1,21 +1,23 @@
 <?php
-	include 'DB_main.php';
+	include_once 'DB_main.php';
 
 	function TestAbo($idUs, $idNl){
 		$dbh = Connect();
-		$sql="select * from abonné where idUs=:idUs and idNl=:idNl";
+		$sql="SELECT * 
+			  FROM abonné 
+			  WHERE idUs=:idUs and idNl=:idNl";
 		$stmp=$dbh->prepare($sql);
 		$stmp->BindValue(':idUs',$idUs);
 		$stmp->BindValue(':idNl',$idNl);
-		
 		if($stmp->execute()) return  ($stmp->fetch()!= null);
-		
 		else return false;
 	}
 	
 	function SelectAllAbo($id){
 		$dbh = Connect();
-		$sql="select u.idUs, log, email from utilisateur u, abonné a where u.idUs=a.idUs and a.idNl=".$id;
+		$sql="SELECT u.idUs, log, email 
+			  FROM utilisateur u, abonné a 
+			  WHERE u.idUs=a.idUs and a.idNl=".$id;
 		$query  =  $dbh->query($sql);
 		return $query;
 	}

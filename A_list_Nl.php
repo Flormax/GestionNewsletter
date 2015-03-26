@@ -7,22 +7,32 @@
 	</head> 
 	<body>
 		<?php 
-		include 'functions.php'; 
+		include_once 'functions.php'; 
 		session_start();
 		TestAdmin();
 		Top_Admin();
 		?>
-		<div id="contenu"><h1>LISTE DES NEWSLETTERS</h1><BR/><BR/>
-			<table><tr><td></td><td>Libelle</td><td></td></tr>
-			<?php $query = SelectAllNl();
-			while($data = $query->fetch()) 
-			{?>
+		
+		<div id="contenu">
+			<h1>LISTE DES NEWSLETTERS</h1>
+			
+			<table>
 				<tr>
-				<td><?php echo $data["idNl"]?></td>
-				<td><?php echo $data["libel"]?></td>
-				<td><a href="A_info_Nl.php?id=<?php echo $data["idNl"]?>">DETAILS</a></td></tr>
-			<?php 
-			} ?>
+					<td></td>
+					<td>Libelle</td>
+					<td></td>
+				</tr>
+				
+				<?php $query = SelectAllNl();
+				while($data = $query->fetch()){?>
+				
+					<tr>
+						<td><?php echo $data["idNl"]?></td>
+						<td><?php echo $data["libel"]?></td>
+						<td><a href="A_info_Nl.php?id=<?php echo $data["idNl"]?>">DETAILS</a></td>
+					</tr>
+					
+				<?php }?>
 			</table>
 		</div>
 		<?php Bot();?>

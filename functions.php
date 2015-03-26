@@ -1,6 +1,6 @@
 <?php
-	include 'DB_Utilisateur.php';
-	include 'DB_newsletter.php';
+	include_once 'DB_utilisateur.php';
+	include_once 'DB_newsletter.php';
 
 	function Top_Admin(){
 		echo '<div id="blocantiscroll">
@@ -37,7 +37,7 @@
 
 	function Bot(){
 		echo'<div id="bottom">Gestionnaire de newsletters de la maison des ligues de
-		lorraine, tout droits reserves. Contact: webmaster@m2l.fr</div>';
+		lorraine. Contact: webmaster@m2l.fr</div>';
 	}
 	
 	function TestAdmin(){

@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css" /> 
 	</head> 
 	<?php 
-		include 'functions.php';
+		include_once 'functions.php';
 		session_start();
 	?>
 	<body>
