@@ -15,7 +15,7 @@
 		<div id="contenu"><h1>DETAILS UTILISATEUR</h1>
 			<?php if (isset($_GET["id"])) {
 				$data = SelectOneUser($_GET["id"]);?>	
-				<form method="post" action="A_update_Us.php?id=<?php echo $data["idUs"] ?>">
+				<form method="post" action="update_Us.php?id=<?php echo $data["idUs"] ?>">
 				<ul><li>Identifiant:  <?php echo $data['log'] ?></li>
 				<li>Email:  <?php echo $data["email"] ?></li> 
 				<?php 

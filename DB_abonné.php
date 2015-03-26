@@ -22,7 +22,8 @@
 
 	function Abonner($idUs, $idNl){
 		$dbh = Connect();
-		$sql="insert into abonné (idUs,idNl) values (:idUs,:idNl)";
+		$sql="INSERT into abonné (idUs,idNl) 
+			  VALUES (:idUs,:idNl)";
 		$stmp=$dbh->prepare($sql);
 		$stmp->BindValue(':idUs',$idUs);
 		$stmp->BindValue(':idNl',$idNl);
@@ -31,7 +32,10 @@
 	
 	function Desabonner($idUs, $idNl){
 		$dbh = Connect();
-		$sql="delete from abonné where idUs=:idUs and idNl=:idNl";
+		$sql="DELETE
+			  FROM abonné 
+			  WHERE idUs=:idUs 
+			  AND idNl=:idNl";
 		$stmp=$dbh->prepare($sql);
 		$stmp->BindValue(':idUs',$idUs);
 		$stmp->BindValue(':idNl',$idNl);

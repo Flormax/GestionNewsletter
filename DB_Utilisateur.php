@@ -4,8 +4,8 @@
 	function Select_log($nom, $mdp) {
 		$dbh = Connect();
 		
-		$sql = "SELECT admin
-			    FROM utilisateur
+		$sql = "SELECT idUs, admin
+			   	FROM utilisateur
 			    WHERE log = :nom
 			    AND mdp = :mdp";
 	
@@ -24,9 +24,20 @@
 		}
 	}
 	
-	function SelectAllUsers(){
+	function SelectAllUsers($idNl=null){
 		$dbh = Connect();
-		$sql="select idUs, log, email from UTILISATEUR";
+		
+		if($idNl) {
+			$sql = "SELECT u.idUs, log, email
+					FROM utilisateur u, abonné a
+					WHERE idNl=".$idNl."
+					AND u.idUs=a.idUs";
+		}		  
+		else {
+			$sql="SELECT idUs, log, email 
+				  FROM utilisateur";
+		}
+		
 		$query  =  $dbh->query($sql);
 		return $query;
 	}
